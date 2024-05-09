@@ -4,9 +4,12 @@ const { Server } = require("socket.io");
 const httpServer = createServer();
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3005",
+    origin: "*",
+    methods: ["GET", "POST"],
+    credentials: true,
     transports: ["websocket"],
   },
+  allowEIO3: true,
 });
 
 io.on("connection", (socket) => {
