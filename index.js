@@ -15,7 +15,6 @@ const io = new Server(httpServer, {
 io.on("connection", (socket) => {
   socket.on(`send-bid-message`, (message) => {
     socket.broadcast.emit("chat-message", message);
-    console.log("🚀 ~ socket.on ~ message:", message);
   });
 });
 
